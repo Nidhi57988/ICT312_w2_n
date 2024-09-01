@@ -1,0 +1,128 @@
+/* Basic resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+}
+
+/* Product container */
+.product-container {
+    display: flex;
+    gap: 20px;
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /*border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);*/
+}
+
+/* Product image gallery */
+.product-image-gallery {
+    flex: 1.5;
+}
+
+.product-main-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product-thumbnails {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.product-thumbnail {
+    width: 70px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+/* Product details */
+.product-details {
+    flex: 2;
+    padding-left: 40px;
+}
+
+.product-name {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #006db2;
+}
+
+.product-category {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    color: #006db2;
+    margin-bottom: 20px;
+}
+
+.product-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.product-quantity {
+    margin-bottom: 20px;
+}
+
+.quantity-input {
+    width: 60px;
+    padding: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.add-to-cart-button {
+    background-color: #006db2;
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: block;
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+}
+
+.add-to-cart-button:hover {
+    background-color: #015285;
+}
+
+.secure-checkout {
+    margin-top: 20px;
+    
+}
+
+.secure-checkout p {
+    margin-bottom: 0px;
+    font-size: 0.8rem;
+}
+
+.secure-checkout img {
+    max-width: 30%;
+}
