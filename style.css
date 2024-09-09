@@ -3,15 +3,44 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+    font-family: "Nunito", sans-serif;
+    text-decoration: none;
+ }
+ 
 
-body {
+ :root{
+    --white-color: #fff;
+    --dark-color: #000000;
+    --light-color: #F4F5F5;
+    --card-bg-color: #f3f7fb;
+    --active-card-color: #b3b3b3;
+    --heading-light-color: #ece2ca;
+    --header-box-shadow: 0 .1rem .1rem rgba(0,0,0,0.1);
+ 
+    --text-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 5px 25px rgba(0 0 0 / 20%);
+    --button-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+ 
+    --scroll-bar-color: #222;
+    --scroll-thumb-color: #eaeaea;
+    --scroll-thumb-hover-color: #eaeaea;
+ }
+
+ body#product {
     font-family: "Poppins", sans-serif;
     background-color: #fff;
     color: #333;
     padding: 20px;
 }
 
+body#signin {
+    background-color: rgb(232, 232, 232);
+  }
+body#contact {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    color: #333;
+    background-color: #ffffff;
+  }
 /* Product container */
 .product-container {
     display: flex;
@@ -24,7 +53,7 @@ body {
     padding-right: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
-    /*border-radius: 8px;
+    /*border-radius: 8px; 
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);*/
 }
 
@@ -126,3 +155,595 @@ body {
 .secure-checkout img {
     max-width: 30%;
 }
+
+
+/*=====SIGNIN PAGE CSS========*/
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+input, button {
+    border: none;
+    outline: none;
+    background: none;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.cont {
+    overflow: hidden;
+    position: relative;
+    width: 900px;
+    height: 650px;
+    margin-top: 62px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center; 
+    background: #fff;
+}
+.form {
+    position: relative;
+    width: 640px;
+    height: 100%;
+    transition: transform 1.2s ease-in-out;
+    padding: 50px 30px 0;
+}
+.sub-cont {
+    overflow: hidden;
+    position: absolute;
+    left: 640px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 260px;
+    background: #fff;
+    transition: transform 1.2s ease-in-out;
+}
+.cont.s--signup .sub-cont {
+    transform: translate3d(-640px, 0, 0);
+}
+button {
+    display: block;
+    margin: 0 auto;
+    width: 260px;
+    height: 36px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+.img {
+    overflow: hidden;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100%;
+    padding-top: 360px;
+}
+.img:before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 900px;
+    height: 100%;
+    background-image: url('https://www.macworld.com/wp-content/uploads/2024/01/appe-store-ipad-display.jpg?quality=50&strip=all');
+    background-size: cover;
+    transition: transform 1.2s ease-in-out;
+}
+.img:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+.cont.s--signup .img:before {
+    transform: translate3d(640px, 0, 0);
+}
+.img__text {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    color: #fff;
+    transition: transform 1.2s ease-in-out;
+}
+.img__text h2 {
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+.img__text p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+.cont.s--signup .img__text.m--up {
+    transform: translateX(520px);
+}
+.img__text.m--in {
+    transform: translateX(-520px);
+}
+.cont.s--signup .img__text.m--in {
+    transform: translateX(0);
+}
+.img__btn {
+    overflow: hidden;
+    z-index: 2;
+    position: relative;
+    width: 100px;
+    height: 36px;
+    margin: 0 auto;
+    background: transparent;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.img__btn:hover {
+ background-color: #fff;
+ color: #000;
+ border-radius: 30px;
+}
+
+.img__btn:hover span {
+ transform: scale(1.1);
+}
+.img__btn:after {
+    content: '';
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    border-radius: 30px;
+}
+.img__btn span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 1.2s;
+}
+.img__btn:hover:after {
+ border-color: #000;
+}
+.img__btn span.m--in {
+    transform: translateY(-72px);
+}
+.cont.s--signup .img__btn span.m--in {
+    transform: translateY(0);
+}
+.cont.s--signup .img__btn span.m--up {
+    transform: translateY(72px);
+}
+h2 {
+    width: 100%;
+    font-size: 26px;
+    text-align: center;
+}
+label {
+    display: block;
+    width: 260px;
+    margin: 25px auto 0;
+    text-align: center;
+}
+label span {
+    font-size: 12px;
+    color: #cfcfcf;
+    text-transform: uppercase;
+}
+input {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    padding-bottom: 5px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+.forgot-pass {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 12px;
+    color: #373635;
+}
+
+.submit {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background: #404040;
+    text-transform: uppercase;
+}
+.submit span {
+ font-weight: 500;
+}
+
+.submit:hover {
+ background-color: #080808; 
+}
+
+.fb-btn {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 260px; 
+ height: 40px; 
+ border: 1px solid #ccc; 
+ border-radius: 30px; 
+ background-color: white; 
+ color: #5f6368; 
+ font-size: 14px; 
+ cursor: pointer;
+ margin-top: 40px; 
+ text-transform: none;
+ line-height: 1.2;}
+
+.fb-btn img {
+ width: 27px; 
+ height: 20px;
+ margin-right: 10px; 
+}
+
+.fb-btn span {
+ font-weight: 500;
+ vertical-align: middle;
+ display: inline-block;
+}
+
+.fb-btn:hover {
+ 
+ background-color: #f7f7f7; 
+ 
+}
+
+.google-btn {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 260px; 
+ height: 40px; 
+ border: 1px solid #ccc; 
+ border-radius: 30px; 
+ background-color: white; 
+ color: #5f6368; 
+ font-size: 14px; 
+ cursor: pointer;
+ margin-top: 15px; 
+ text-transform: none;
+ line-height: 1.2;
+}
+
+.google-btn img {
+ width: 21px; 
+ height: 20px;
+ margin-right: 10px; 
+}
+
+.google-btn span {
+ font-weight: 500;
+ display: inline-block;
+ vertical-align: middle;
+}
+
+.google-btn:hover {
+ background-color: #f7f7f7; 
+}
+
+
+.sign-in {
+    transition-timing-function: ease-out;
+}
+.cont.s--signup .sign-in {
+    transition-timing-function: ease-in-out;
+    transition-duration: 1.2s;
+    transform: translate3d(640px, 0, 0);
+}
+.sign-up {
+    transform: translate3d(-900px, 0, 0);
+}
+.cont.s--signup .sign-up {
+    transform: translate3d(0, 0, 0);}
+
+
+/*=====CONTACT PAGE CSS========*/
+/*=========Google fonts =========*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+/*======= CSS variables =========*/
+
+::-webkit-scrollbar{
+   width: 13px;
+   background: var(--scroll-bar-color);
+}
+
+::-webkit-scrollbar-thumb{
+   width: 100%;
+   background: var(--scroll-thumb-color);
+}
+
+::-webkit-scrollbar-thumb:hover{
+   background: var(--scroll-thumb-hover-color);
+}
+
+/*======== Main CSS =========*/
+
+.background{
+   width: 100%;
+   height: 100%;
+   background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(images/contact_us.jpg);
+   background-size: cover;
+   background-position: center;
+   position: absolute;
+   background-repeat: no-repeat;
+}
+section{
+   position: relative;
+}
+footer{
+   position: relative;
+}
+.heading{
+   text-align: center;
+   font-size: 1.9em;
+   margin-bottom: 20px;
+}
+.description{
+   text-align: center;
+   font-size: 1.1em;
+}
+
+.home{
+   min-height: 60vh;
+   background: var(--section-bg-color);
+}
+
+.homeHeading{
+   position: absolute;
+   top: 200px;
+   left: 100px;
+   text-transform: uppercase;
+   letter-spacing: 3px;
+}
+.homeHeading h1{
+   font-family: "Poppins:ital", sans-serif;
+   font-size: 2em;
+   font-weight: 600;
+   line-height: 45px;
+   margin-bottom: 20px;
+   color: var(--white-color);
+}
+
+/*=========Help Section========*/
+.help{
+   color: var(--dark-color);
+   background: var(--white-color);
+   padding: 2rem 0;
+}
+.card-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: row;
+   padding-top: 30px;
+   gap: 30px;
+   flex-wrap: wrap;
+}
+.card{
+   position: relative;
+   background: var(--card-bg-color);
+   width:320px;
+   border-radius: 10px;
+   overflow: hidden;
+}
+.card .card-img{
+   position: relative;
+   width: 350px;
+   height: 50px;
+}
+.card .card-img img{
+   display: block;
+   margin-left: 38%;
+   margin-top: 20px;
+}
+.card-content{
+   position: relative;
+   text-align: center;
+   margin: 15px;
+}
+.card:hover{
+   transform: translateY(-4px);
+   transition: 0.3s ease;
+   box-shadow: var(--box-shadow);
+   cursor: pointer;
+}
+.card-content .text{
+   position: relative;
+   font-size: 14px;
+   text-align: center;
+   line-height: 1.5;
+   margin: 13px;
+   height: 40px;
+   overflow: hidden;
+}
+.card-content h1{
+   font-size: 16px;  
+   line-height: 1.6;
+}
+
+/*=========Product Section============*/
+.product{
+   color: var(--dark-color);
+   background: var(--white-color);
+   padding: 2rem 0;
+}
+.product-card{
+   position: relative;
+   background: var(--card-bg-color);
+   width:200px;
+   border-radius: 10px;
+   overflow: hidden;
+}
+.product-card .card-img{
+   position: relative;
+   width: 350px;
+   height: 120px;
+}
+.product-card .card-img img{
+   display: block;
+   margin-left: 6%;
+   margin-top: 20px;
+}
+.product-card .card-content{
+   position: relative;
+   text-align: center;
+   margin: 15px;
+   height: 50px;
+}
+.product-card:hover{
+   transform: translateY(-4px);
+   transition: 0.3s ease;
+   box-shadow: var(--box-shadow);
+   cursor: pointer;
+}
+
+/*==========Contact-Card=========*/
+.contact{
+   color: var(--dark-color);
+   background: var(--white-color);
+   padding: 2rem 0;
+}
+.contact.active{
+   display: block;
+}
+.contact-card{
+   position: relative;
+   background: var(--card-bg-color);
+   width:240px;
+   border-radius: 10px;
+}
+.contact-card .card-content .text{
+   position: relative;
+   font-size: 14px;
+   text-align: center;
+   line-height: 1.5;
+   margin: 13px;
+   height: 100px;
+   overflow: hidden;
+}
+/*==========Map=========*/
+.map-container{
+   margin-left: 15%;
+   width: 950px;
+   height: 400px;
+}
+.contact-section {
+   width: 100%;
+   max-width: 40rem;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 3rem 1rem;
+ }
+ 
+ .contact-intro > * + * {
+   margin-top: 1rem;
+ }
+ 
+ .contact-title {
+   font-size: 1.875rem;
+   line-height: 2.25rem;
+   font-weight: 700;
+   text-align: left;
+ }
+ 
+ .contact-description {
+   color: rgb(107 114 128);
+ }
+ 
+ .form-group-container {
+   display: grid;
+   gap: 1rem;
+   margin-top: 2rem;
+   text-align: left;
+   
+ }
+ 
+ .form-group {
+   display: flex;
+   flex-direction: column;
+   text-align: left;
+   column-gap: 5px;
+ }
+ 
+ .form-label {
+   margin-bottom: 5px;
+   margin-top: 5px;
+   margin-left: 0;
+   text-align: left;
+ }
+ 
+ .form-input,
+ .form-textarea {
+   padding: 0.5rem;
+   border: 1px solid #e5e7eb;
+   display: flex;
+   height: 2.5rem;
+   width: 100%;
+   border-radius: 0.375rem;
+   font-size: 0.875rem;
+   line-height: 1.25rem;
+   text-align: left;
+ }
+ 
+ .form-input::placeholder,
+ .form-textarea:focus-visible {
+   color: #6b7280;
+ }
+ 
+ .form-input:focus-visible,
+ .form-textarea:focus-visible {
+   outline: 2px solid #2563eb;
+   outline-offset: 2px;
+ }
+ 
+ .form-textarea {
+   min-height: 120px;
+ }
+ 
+ .form-submit {
+   width: 100%;
+   height: 48px;
+   margin-top: 20px;
+   background-color: #181818;
+   color: #fff;
+   padding: 13px 5px;
+   border-radius: 0.375rem;
+ }
+ 
+ .form-submit:hover{
+   transform: translateY(-4px);
+   transition: 0.3s ease;
+   box-shadow: var(--box-shadow);
+   cursor: pointer;
+}
+
+.error {
+   color: red;
+   font-size: 0.875rem;
+ }
