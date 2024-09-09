@@ -126,3 +126,28 @@ body {
 .secure-checkout img {
     max-width: 30%;
 }
+
+/*Services Page */
+.service-page{
+    display: flex;
+    gap: 20px;
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    padding-left: 40px;
+    padding-right: 54px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #666;
+
+}
+
+.service-heading{
+    color: #006db2;
+}
+
+.service-delivery{
+    font-size: 1rpm;
+    color: #666;
+}
