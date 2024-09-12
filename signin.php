@@ -89,7 +89,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="password" name="password" required />
                     <span class="error"><?php echo $signin_passwordErr; ?></span>
                 </label>
-                <p class="forgot-pass">Forgot password?</p>
+                <p class="forgot-pass"><span>Forgot password?</span></p>
                 <button type="submit" class="submit">Sign In</button>
             </form>
             <button type="button" class="fb-btn">
@@ -101,7 +101,6 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
                 <span>Continue with Google</span>
             </button>
         </div>
-
         <div class="sub-cont">
             <div class="img">
                 <div class="img__text m--up">

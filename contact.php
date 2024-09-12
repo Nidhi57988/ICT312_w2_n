@@ -14,93 +14,6 @@
   </head>
 
   <body id="contact">
-      
-      <section class="home" id="home">
-        <div class="background"></div>
-        <div class="homeHeading">
-            <h1>Contact Us</h1>
-        </div>
-      </section>
-
-      <section class="help" id="help">
-        <h4 class="heading">How can we help?</h4>
-        <p class="description"> Please select one of the following options</p>
-        <div class="card-container">
-          <div class="card">
-            <div class="card-img">  
-              <img src="images/shopping-bag.jpg">
-            </div>
-            <div class="card-content">
-              <h1>Help me make a purchase</h1>
-              <p class="text">Shopping FAQs / Financing / Promotions</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-img">
-              <img src="images/order-box.jpg">
-            </div>
-            <div class="card-content">
-              <h1>Help me with an order</h1>
-              <p class="text">Delivery / Installation / Returns / Cancellations</p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-img">
-              <img src="images/product-support.jpg">
-            </div>
-            <div class="card-content">
-              <h1>Technical product support</h1>
-              <p class="text">Repairs / Troubleshooting / Warranty / Product help</p>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <section class="product" id="product">
-        <h4 class="heading">Select your product type</h4>
-        <div class="card-container">
-          <div class="product-card">
-            <div class="card-img">  
-              <img src="images/mobile.jpg">
-            </div>
-            <div class="card-content">
-              <h1>Mobile, tablets and wearables</h1>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img">
-              <img src="images/TV.jpg">
-            </div>
-            <div class="card-content">
-              <h1>TV and Sound</h1>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img">
-              <img src="images/home-appliances.jpg" style="margin-left: 14%;">
-            </div>
-            <div class="card-content">
-              <h1>Home appliances</h1>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="card-img">
-              <img src="images/computing.jpg" style="margin-left: 8%;">
-            </div>
-            <div class="card-content">
-              <h1>Computing</h1>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
       <section class="contact" id="contact">
         <h4 class="heading">Contact Options</h4>
         <div class="card-container">
@@ -126,12 +39,6 @@
             </div>
           </div>
 
-      </section>
-
-      <section class="address" id="address">
-        <div class="map-container">
-          <div id="map" style="width:100%;height:400px"></div>
-        </div>
       </section>
       <section class="contact-section">
         <div class="contact-intro">
@@ -214,6 +121,11 @@
           </div>
           <button class="form-submit" type="submit">Send Message</button>
         </form>
+      </section>
+      <section class="address" id="address">
+        <div class="map-container">
+          <div id="map" style="width:100%;height:400px"></div>
+        </div>
       </section>
   </body>
 

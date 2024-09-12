@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Nunito", sans-serif;
+    font-family: "Helvetica Neue", Arial, sans-serif;
     text-decoration: none;
  }
  
@@ -27,7 +27,7 @@
  }
 
  body#product {
-    font-family: "Poppins", sans-serif;
+    font-family: "Helvetica Neue", Arial, sans-serif;;
     background-color: #fff;
     color: #333;
     padding: 20px;
@@ -37,7 +37,7 @@ body#signin {
     background-color: rgb(232, 232, 232);
   }
 body#contact {
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Arial, sans-serif;;
     color: #333;
     background-color: #ffffff;
   }
@@ -168,7 +168,7 @@ input, button {
     border: none;
     outline: none;
     background: none;
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
 .cont {
@@ -184,6 +184,11 @@ input, button {
 }
 .form {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
     width: 640px;
     height: 100%;
     transition: transform 1.2s ease-in-out;
@@ -213,6 +218,7 @@ button {
     font-size: 15px;
     cursor: pointer;
 }
+
 .img {
     overflow: hidden;
     z-index: 2;
@@ -359,12 +365,18 @@ input {
     text-align: center;
 }
 .forgot-pass {
+    display: inline-block;
     margin-top: 15px;
-    text-align: center;
     font-size: 12px;
-    color: #373635;
+    color: #000000;
+    text-decoration: none;  
+    cursor: pointer;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
 }
-
+.forgot-pass:hover {
+    color: #0b0584;
+    text-decoration: underline; 
+}
 .submit {
     margin-top: 40px;
     margin-bottom: 20px;
@@ -463,9 +475,6 @@ input {
 
 
 /*=====CONTACT PAGE CSS========*/
-/*=========Google fonts =========*/
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-
 /*======= CSS variables =========*/
 
 ::-webkit-scrollbar{
@@ -484,15 +493,6 @@ input {
 
 /*======== Main CSS =========*/
 
-.background{
-   width: 100%;
-   height: 100%;
-   background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(images/contact_us.jpg);
-   background-size: cover;
-   background-position: center;
-   position: absolute;
-   background-repeat: no-repeat;
-}
 section{
    position: relative;
 }
@@ -507,27 +507,6 @@ footer{
 .description{
    text-align: center;
    font-size: 1.1em;
-}
-
-.home{
-   min-height: 60vh;
-   background: var(--section-bg-color);
-}
-
-.homeHeading{
-   position: absolute;
-   top: 200px;
-   left: 100px;
-   text-transform: uppercase;
-   letter-spacing: 3px;
-}
-.homeHeading h1{
-   font-family: "Poppins:ital", sans-serif;
-   font-size: 2em;
-   font-weight: 600;
-   line-height: 45px;
-   margin-bottom: 20px;
-   color: var(--white-color);
 }
 
 /*=========Help Section========*/
@@ -587,48 +566,13 @@ footer{
    line-height: 1.6;
 }
 
-/*=========Product Section============*/
-.product{
-   color: var(--dark-color);
-   background: var(--white-color);
-   padding: 2rem 0;
-}
-.product-card{
-   position: relative;
-   background: var(--card-bg-color);
-   width:200px;
-   border-radius: 10px;
-   overflow: hidden;
-}
-.product-card .card-img{
-   position: relative;
-   width: 350px;
-   height: 120px;
-}
-.product-card .card-img img{
-   display: block;
-   margin-left: 6%;
-   margin-top: 20px;
-}
-.product-card .card-content{
-   position: relative;
-   text-align: center;
-   margin: 15px;
-   height: 50px;
-}
-.product-card:hover{
-   transform: translateY(-4px);
-   transition: 0.3s ease;
-   box-shadow: var(--box-shadow);
-   cursor: pointer;
-}
-
 /*==========Contact-Card=========*/
 .contact{
    color: var(--dark-color);
    background: var(--white-color);
    padding: 2rem 0;
 }
+
 .contact.active{
    display: block;
 }
