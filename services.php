@@ -1,9 +1,5 @@
 <?php
 	
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -43,9 +39,6 @@
 			You can always contact us for any return question at support@hifi.com <br>
 
 			<b> Refund: </b> We will notify you once we’ve received and inspected your return, and let you know if the refund was approved or not. If approved, you’ll be automatically refunded on your original payment method within 10 business days. Please remember it can take some time for your bank or credit card company to process and post the refund too.
-
-
-
 
 		</div>
 	</div>
