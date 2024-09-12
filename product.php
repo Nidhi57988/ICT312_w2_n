@@ -40,6 +40,7 @@ $product = [
                 </div>
             </div>
 
+
             <div class="product-details">
                 <h1 class="product-name"><?php echo $product['name']; ?></h1>
                 <p class="product-category">Categories: <?php echo implode(', ', $product['category']); ?></p>
