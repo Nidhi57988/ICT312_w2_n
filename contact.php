@@ -77,17 +77,28 @@
 
             
             if (empty($errors)) {
-                
-                $to = "support@techinnovators.com";
-                $subject = "New Contact Message";
-                $headers = "From: $email";
-                $email_message = "Name: $name\nEmail: $email\nPhone: $phone\n\nMessage:\n$message";
+              $host = 'localhost';
+              $db   = 'ICT312_website';
+              $user = 'root';
+              $pass = 'root';
+              $charset = 'utf8mb4';
 
-                if (mail($to, $subject, $email_message, $headers)) {
-                    echo "<p style='color: green;'>Thank you for contacting us! We will get back to you shortly.</p>";
-                } else {
-                    echo "<p style='color: red;'>Error sending the message. Please try again later.</p>";
-                }
+              $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+              $options = [
+                  PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       
+                  PDO::ATTR_EMULATE_PREPARES   => false,            
+              ];
+
+              try {
+                  $pdo = new PDO($dsn, $user, $pass, $options);
+                  $stmt = $pdo->prepare('INSERT INTO user_feedback (name, email, phone, message) VALUES (?, ?, ?, ?)');
+                  $stmt->execute([$name, $email, $phone, $message]);
+
+                  echo "<p style='color: green;'>Thank you for your feedback! We will get back to you shortly.</p>";
+              } catch (PDOException $e) {
+                  echo "<p style='color: red;'>Error saving your feedback. Please try again later.</p>";
+              }
             } else {
                 foreach ($errors as $error) {
                     echo "<p style='color: red;'>$error</p>";

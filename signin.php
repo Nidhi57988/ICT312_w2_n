@@ -5,63 +5,103 @@ $signin_emailErr = $signin_passwordErr = "";
 $signup_first_name = $signup_last_name = $signup_email = $signup_password = "";
 $signup_first_nameErr = $signup_last_nameErr = $signup_emailErr = $signup_passwordErr = "";
 
-if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (empty($_POST["email"])) {
-        $signin_emailErr = "Email is required";
-    } else {
-        $signin_email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-        if (!filter_var($signin_email, FILTER_VALIDATE_EMAIL)) {
-            $signin_emailErr = "Invalid email format";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['form_type'])) {
+        $host = 'localhost';
+        $db   = 'ICT312_website';
+        $user = 'root';
+        $pass = 'root';
+        $charset = 'utf8mb4';
+
+        $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+        $options = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, 
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       
+            PDO::ATTR_EMULATE_PREPARES   => false,                 
+        ];
+        if ($_POST['form_type'] == 'signin') {
+            if (empty($_POST["email"])) {
+                $signin_emailErr = "Email is required";
+            } else {
+                $signin_email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+                if (!filter_var($signin_email, FILTER_VALIDATE_EMAIL)) {
+                    $signin_emailErr = "Invalid email format";
+                }
+            }
+
+            if (empty($_POST["password"])) {
+                $signin_passwordErr = "Password is required";
+            } else {
+                $signin_password = htmlspecialchars($_POST["password"]);
+                if (strlen($signin_password) < 6) {
+                    $signin_passwordErr = "Password must be at least 6 characters";
+                }
+            }
+
+            if (empty($signin_emailErr) && empty($signin_passwordErr)) {
+                try {
+                    $pdo = new PDO($dsn, $user, $pass, $options);
+                } catch (PDOException $e) {
+                    die('Database Connection Failed: ' . $e->getMessage());
+                }
+                $stmt = $pdo->prepare('SELECT password FROM users WHERE email = ?');
+                $stmt->execute([$signin_email]);
+                $pass = $stmt->fetch();
+
+                if ($pass && password_verify($signin_password, $pass['password'])) {
+                    header('Location: homepage.php');
+                    exit;
+                }
+                else {
+                    $signin_passwordErr = "Invalid email or password";
+                }
+            }
+        } elseif ($_POST['form_type'] == 'signup') {
+            if (empty($_POST["first_name"])) {
+                $signup_first_nameErr = "First Name is required";
+            } else {
+                $signup_first_name = htmlspecialchars($_POST["first_name"]);
+            }
+
+            if (empty($_POST["last_name"])) {
+                $signup_last_nameErr = "Last Name is required";
+            } else {
+                $signup_last_name = htmlspecialchars($_POST["last_name"]);
+            }
+
+            if (empty($_POST["email"])) {
+                $signup_emailErr = "Email is required";
+            } else {
+                $signup_email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+                if (!filter_var($signup_email, FILTER_VALIDATE_EMAIL)) {
+                    $signup_emailErr = "Invalid email format";
+                }
+            }
+
+            if (empty($_POST["password"])) {
+                $signup_passwordErr = "Password is required";
+            } else {
+                $signup_password = htmlspecialchars($_POST["password"]);
+                if (strlen($signup_password) < 6) {
+                    $signup_passwordErr = "Password must be at least 6 characters";
+                }
+            }
+
+            if (empty($signup_first_nameErr) && empty($signup_last_nameErr) && empty($signup_emailErr) && empty($signup_passwordErr)) {
+                try {
+                    $pdo = new PDO($dsn, $user, $pass, $options);
+                } catch (PDOException $e) {
+                    die('Database Connection Failed: ' . $e->getMessage());
+                }
+                $hashed_password = password_hash($signup_password, PASSWORD_DEFAULT);
+
+                $stmt = $pdo->prepare('INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)');
+                $stmt->execute([$signup_first_name, $signup_last_name, $signup_email, $hashed_password]);
+
+                header('Location: homepage.php');
+                exit;
+            }
         }
-    }
-
-    if (empty($_POST["password"])) {
-        $signin_passwordErr = "Password is required";
-    } else {
-        $signin_password = htmlspecialchars($_POST["password"]);
-        if (strlen($signin_password) < 6) {
-            $signin_passwordErr = "Password must be at least 6 characters";
-        }
-    }
-
-    if (empty($signin_emailErr) && empty($signin_passwordErr)) {
-        echo "<script>alert('Sign-In Form Submitted Successfully');</script>";
-    }
-}
-
-if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (empty($_POST["first_name"])) {
-        $signup_first_nameErr = "First Name is required";
-    } else {
-        $signup_first_name = htmlspecialchars($_POST["first_name"]);
-    }
-
-    if (empty($_POST["last_name"])) {
-        $signup_last_nameErr = "Last Name is required";
-    } else {
-        $signup_last_name = htmlspecialchars($_POST["last_name"]);
-    }
-
-    if (empty($_POST["email"])) {
-        $signup_emailErr = "Email is required";
-    } else {
-        $signup_email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-        if (!filter_var($signup_email, FILTER_VALIDATE_EMAIL)) {
-            $signup_emailErr = "Invalid email format";
-        }
-    }
-
-    if (empty($_POST["password"])) {
-        $signup_passwordErr = "Password is required";
-    } else {
-        $signup_password = htmlspecialchars($_POST["password"]);
-        if (strlen($signup_password) < 6) {
-            $signup_passwordErr = "Password must be at least 6 characters";
-        }
-    }
-
-    if (empty($signup_first_nameErr) && empty($signup_last_nameErr) && empty($signup_emailErr) && empty($signup_passwordErr)) {
-        echo "<script>alert('Sign-Up Form Submitted Successfully');</script>";
     }
 }
 ?>
@@ -78,7 +118,8 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="cont">
         <div class="form sign-in">
             <h2>Welcome back!</h2>
-            <form action="signin.php" method="post">
+            <form action="" method="post">
+                <input type="hidden" name="form_type" value="signin">
                 <label>
                     <span>Email</span>
                     <input type="email" name="email" value="<?php htmlspecialchars($signin_email); ?>" required />
@@ -119,7 +160,8 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="form sign-up">
                 <h2>Create your account now!</h2>
-                <form action="signup.php" method="post">
+                <form action="" method="post">
+                    <input type="hidden" name="form_type" value="signup">
                     <label>
                         <span>First Name</span>
                         <input type="text" name="first_name" value="<?php echo htmlspecialchars($signup_first_name); ?>" required />
