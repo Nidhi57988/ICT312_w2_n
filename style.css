@@ -1,0 +1,246 @@
+/* General Styles */
+body, html {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--dark-color);
+    background-color: var(--off-white-color);
+}
+
+:root {
+    --white-color: #fff;
+    --dark-color: #000;
+    --off-white-color: rgb(232, 232, 232);
+    --primary-color: #282c30;
+    --highlight-color: #ff5c5e;
+    --footer-hover-color: var(--dark-color);
+    --hover-color: rgba(211, 211, 211, 0.8);
+    --dropdown-bg-color: rgba(211, 211, 211, 0.9); /* Grayish background for dropdown */
+}
+
+/* Header */
+.header--logo {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px;
+    background-color: var(--white-color); /* Header background */
+}
+
+.header--logo img {
+    width: 150px;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    position: relative; /* Position for dropdown */
+}
+
+.nav-links li {
+    position: relative; /* Needed for dropdown positioning */
+}
+
+.nav-links li a {
+    color: var(--dark-color);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+
+.dropdown-menu {
+    display: none; /* Hide dropdown by default */
+    position: absolute; /* Position it absolutely */
+    background-color: var(--white-color);
+    border: 1px solid var(--dark-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+.nav-links li:hover .dropdown-menu {
+    display: block; /* Show dropdown on hover */
+}
+
+.dropdown-menu li {
+    padding: 10px 15px;
+}
+
+.dropdown-menu li a {
+    color: var(--dark-color);
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background-color: var(--dropdown-bg-color); /* Grayish box effect on hover */
+}
+
+/* Header Icons */
+.header-icons {
+    display: flex;
+    gap: 30px; /* Increase space between icons */
+    align-items: center; /* Align icons vertically */
+}
+
+.header-icons a {
+    color: var(--dark-color);
+    font-size: 24px;
+    transition: color 0.3s; /* Add a transition for color */
+}
+
+.header-icons a:hover {
+    color: var(--highlight-color); /* Change color on hover */
+}
+
+/* Tooltip styling */
+.header-icons a::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    padding: 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.header-icons a:hover::after {
+    opacity: 1; /* Show tooltip on hover */
+}
+
+/* Search Bar */
+.search-bar {
+    padding: 5px;
+    border: 1px solid var(--dark-color);
+    border-radius: 4px;
+    outline: none;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    color: var(--dark-color);
+    padding: 50px 20px;
+    background-color: var(--white-color); /* Hero section background */
+}
+
+.hero-slideshow {
+    position: relative;
+    overflow: hidden; /* Hide overflow */
+    width: 100%;
+}
+
+.hero-images {
+    position: relative;
+    transition: opacity 1s ease; /* Smooth transition */
+}
+
+.hero-image {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    opacity: 0; /* Start hidden */
+    transition: opacity 1s ease; /* Smooth transition */
+}
+
+.hero-image.active {
+    opacity: 1; /* Show active image */
+}
+
+.hero-content {
+    position: relative; /* Adjust position for hero content */
+    z-index: 1; /* Ensure content is on top */
+}
+
+.hero h1 {
+    font-size: 36px; 
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn-hero {
+    background-color: var(--highlight-color);
+    border: none;
+    padding: 15px 30px;
+    color: var(--white-color);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-hero:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: var(--white-color); /* Footer background */
+    color: var(--dark-color);
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    list-style-type: none;
+    display: flex;
+    gap: 30px; /* Increase space between footer items */
+    position: relative; /* Position for dropdown */
+}
+
+.footer-links li {
+    position: relative; /* Needed for dropdown positioning */
+}
+
+.footer-links li a {
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.footer-links li:hover .dropdown-menu {
+    display: block; /* Show dropdown on hover */
+}
+
+.dropdown-menu {
+    display: none; /* Hide dropdown by default */
+    position: absolute; /* Position it absolutely */
+    background-color: var(--dropdown-bg-color); /* Grayish background */
+    border: 1px solid var(--dark-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header--logo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 28px; 
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+}
