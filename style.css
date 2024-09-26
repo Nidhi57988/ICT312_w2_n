@@ -21,9 +21,6 @@
     --box-shadow: 0 5px 25px rgba(0 0 0 / 20%);
     --button-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
  
-    --scroll-bar-color: #222;
-    --scroll-thumb-color: #eaeaea;
-    --scroll-thumb-hover-color: #eaeaea;
  }
 
  body#product {
@@ -159,7 +156,6 @@ body#contact {
     max-width: 30%;
 }
 
-<<<<<<< HEAD
 /*Services Page */
 .service-page{
     display: flex;
@@ -185,7 +181,6 @@ body#contact {
     font-size: 1rpm;
     color: #666;
 }
-=======
 
 /*=====SIGNIN PAGE CSS========*/
 
@@ -211,6 +206,7 @@ input, button {
     margin-right: auto;
     align-self: center; 
     background: #fff;
+    vertical-align: middle;
 }
 .form {
     position: relative;
@@ -505,22 +501,6 @@ input {
 
 
 /*=====CONTACT PAGE CSS========*/
-/*======= CSS variables =========*/
-
-::-webkit-scrollbar{
-   width: 13px;
-   background: var(--scroll-bar-color);
-}
-
-::-webkit-scrollbar-thumb{
-   width: 100%;
-   background: var(--scroll-thumb-color);
-}
-
-::-webkit-scrollbar-thumb:hover{
-   background: var(--scroll-thumb-hover-color);
-}
-
 /*======== Main CSS =========*/
 
 section{

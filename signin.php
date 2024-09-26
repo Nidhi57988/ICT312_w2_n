@@ -2,8 +2,8 @@
 $signin_email = $signin_password = "";
 $signin_emailErr = $signin_passwordErr = "";
 
-$signup_first_name = $signup_last_name = $signup_email = $signup_password = "";
-$signup_first_nameErr = $signup_last_nameErr = $signup_emailErr = $signup_passwordErr = "";
+$signup_full_name = $signup_email = $signup_password = $confirm_password = "";
+$signup_full_nameErr = $signup_emailErr = $signup_passwordErr = $confirm_passwordErr = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['form_type'])) {
@@ -57,16 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             }
         } elseif ($_POST['form_type'] == 'signup') {
-            if (empty($_POST["first_name"])) {
-                $signup_first_nameErr = "First Name is required";
+            if (empty($_POST["full_name"])) {
+                $signup_full_nameErr = "Full Name is required";
             } else {
-                $signup_first_name = htmlspecialchars($_POST["first_name"]);
-            }
-
-            if (empty($_POST["last_name"])) {
-                $signup_last_nameErr = "Last Name is required";
-            } else {
-                $signup_last_name = htmlspecialchars($_POST["last_name"]);
+                $signup_full_name = htmlspecialchars($_POST["full_name"]);
             }
 
             if (empty($_POST["email"])) {
@@ -86,8 +80,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $signup_passwordErr = "Password must be at least 6 characters";
                 }
             }
+            if (empty($_POST["confirm_password"])) {
+                $confirm_passwordErr = "Please confirm your password.";
+            } else {
+                $confirm_password = htmlspecialchars($_POST["confirm_password"]);
+                if ($signup_password !== $confirm_password){
+                    $confirm_passwordErr = "Passwords do not match.";
+                }
+            }
 
-            if (empty($signup_first_nameErr) && empty($signup_last_nameErr) && empty($signup_emailErr) && empty($signup_passwordErr)) {
+            if (empty($signup_full_nameErr) && empty($signup_emailErr) && empty($signup_passwordErr) && empty($confirm_passwordErr)) {
                 try {
                     $pdo = new PDO($dsn, $user, $pass, $options);
                 } catch (PDOException $e) {
@@ -95,8 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 $hashed_password = password_hash($signup_password, PASSWORD_DEFAULT);
 
-                $stmt = $pdo->prepare('INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)');
-                $stmt->execute([$signup_first_name, $signup_last_name, $signup_email, $hashed_password]);
+                $stmt = $pdo->prepare('INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)');
+                $stmt->execute([$signup_full_name, $signup_email, $hashed_password]);
 
                 header('Location: homepage.php');
                 exit;
@@ -163,14 +165,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <form action="" method="post">
                     <input type="hidden" name="form_type" value="signup">
                     <label>
-                        <span>First Name</span>
-                        <input type="text" name="first_name" value="<?php echo htmlspecialchars($signup_first_name); ?>" required />
-                        <span class="error"><?php echo $signup_first_nameErr; ?></span>
-                    </label>
-                    <label>
-                        <span>Last Name</span>
-                        <input type="text" name="last_name" value="<?php echo htmlspecialchars($signup_last_name); ?>" required />
-                        <span class="error"><?php echo $signup_last_nameErr; ?></span>
+                        <span>Full Name</span>
+                        <input type="text" name="full_name" value="<?php echo htmlspecialchars($signup_full_name); ?>" required />
+                        <span class="error"><?php echo $signup_full_nameErr; ?></span>
                     </label>
                     <label>
                         <span>Email</span>
@@ -181,6 +178,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <span>Password</span>
                         <input type="password" name="password" required />
                         <span class="error"><?php echo $signup_passwordErr; ?></span>
+                    </label>
+                    <label>
+                        <span>Confirm Password</span>
+                        <input type="password" name="confirm_password" required />
+                        <span class="error"><?php echo $confirm_passwordErr; ?></span>
                     </label>
                     <button type="submit" class="submit">Sign Up</button>
                 </form>
