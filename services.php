@@ -17,6 +17,9 @@
 <body>
 	<div class="service-page">
 		<div class="service-delivery">
+
+
+			
 			<h1 class="serivce-heading">Delivery Options </h1>
 			When you buy online, we provide a range of convenient delivery options so you can get your purchases when you want. At checkout, we’ll show you the available options and delivery costs based on the items in your cart and where you need them delivered.<br>
 			<b>Standard Delivery (2 – 12 days)</b>:
