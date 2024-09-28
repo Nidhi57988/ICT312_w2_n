@@ -34,6 +34,9 @@
 			For more delivery options visit <a href="https://auspost.com.au/business/shipping/delivery-speeds-and-coverage">Australian Post Website </a>
 
 			<h1 class='serivce-heading'>Damages & Issues</h1>
+
+
+			
 			Please inspect your order upon reception and contact us immediately if the item is defective, damaged or if you receive the wrong item, so that we can evaluate the issue and make it right. 
 
 			<h1 class="serivce-heading">Returns & Refunds</h1>
