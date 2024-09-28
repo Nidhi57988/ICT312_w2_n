@@ -1,7 +1,8 @@
 <!DOCTYPE html>  
 <html>  
 <head>  
-  <img src="logo.png" alt="Logo">   
+  <img src="logo.png" alt="Logo">
+  
 	<style>  
 		body {  
 			font-family: Arial, sans-serif;  
