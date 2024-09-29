@@ -116,6 +116,11 @@
             </div>
 
             <button type='button' class='product-page-button'>Add to Cart</button>
+
+            <div class="secure-checkout">
+                    <p>Guaranteed Safe Checkout with</p>
+                   <img src="https://www.ozquilts.com.au/images/companies/1/untitled%20folder/paypal-logo.png?1652491832766" alt="Payment options">
+                </div>
         </div>
 
     </div>

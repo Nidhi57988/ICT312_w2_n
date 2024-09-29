@@ -57,10 +57,17 @@ body#services {
     padding: 20px;
 }
 
-.left-section, .right-section {
+.left-section{
             width: 50%; /* Equally divide the sections */
             padding: 10px;
             box-sizing: border-box;
+        }
+		
+.right-section {
+            width: 50%; /* Equally divide the sections */
+            padding: 10px;
+            box-sizing: border-box;
+			text-align: left;
         }
 
 .single-product .product-image{
@@ -166,33 +173,42 @@ body#services {
 }
 
 .product-page-button {
-    margin-bottom: 20px;
-    background: black;
-    text-transform: uppercase;
-}
-
-
-.product-page-button span {
- font-weight: 500;
+    
+display: inline-block; /* Allows the button to keep its content-based size */
+    width: 45%; /* The button will only be as wide as its content */
+    margin-top: 20px; /* Adds space above the button */
+    background-color: #000; /* Button background color */
+    color: #fff; /* Text color */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for a better button size */
+    font-size: 16px; /* Adjust font size */
+    cursor: pointer; /* Cursor pointer on hover */
+    text-align: center;
+	
+	
 }
 
 .product-page-button:hover {
- background-color: #080808; 
+ background-color: grey; 
 }
 
 .secure-checkout {
-    margin-top: 20px;
-    
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    margin-top: 20px; /* Spacing above the section */
 }
 
 .secure-checkout p {
-    margin-bottom: 0px;
-    font-size: 0.8rem;
+    margin-bottom: 0; /* Remove bottom margin */
+    font-size: 1rem; /* Font size */
+    margin-right: 10px; /* Add space between text and image */
 }
 
 .secure-checkout img {
-    max-width: 30%;
+    max-width: 30%; /* Limit image width */
+    height: auto; /* Maintain aspect ratio */
 }
+
 
 /*Services Page */
 .servicepage-container {
