@@ -46,7 +46,26 @@ body#services {
     color: #333;
     font-size: 0.6rem;
 }
+
+/*Saksham COde*/
+/* body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--dark-color);
+    background-color: var(--off-white-color);
+}
+
+:root {
+    --white-color: #fff;
+    --dark-color: #000;
+    --off-white-color: rgb(232, 232, 232);
+    --primary-color: #282c30;
+    --highlight-color: #ff5c5e;
+} */
+
   
+/*Nidhi Product Page code*/
 /* Product container */
 
 .product-container {
@@ -231,7 +250,7 @@ display: inline-block; /* Allows the button to keep its content-based size */
     margin-bottom: 20px;
     font-size: 1rem;
 }
-
+/*Prapti code*/
 /*=====SIGNIN PAGE CSS========*/
 
 *, *:before, *:after {
@@ -751,3 +770,260 @@ footer{
    color: red;
    font-size: 0.875rem;
  }
+
+
+
+ /*Saksham Code*/
+ /* Header */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Reduced padding for a smaller header */
+    background-color: var(--dark-color); /* Black background */
+}
+
+.logo {
+    width: 200px; /* Increased logo size */
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+.nv00-gnb__l0-menu-link {
+    color: var(--white-color); /* White text */
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    white-space: nowrap;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content p {
+    margin: 0;
+    padding: 8px 16px;
+    color: var(--dark-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content p:hover {
+    background-color: var(--off-white-color);
+}
+
+/* Header Icons */
+.header-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.header-icons a {
+    color: var(--white-color);
+    font-size: 24px; /* Increased icon size */
+}
+
+/* Hero Section */
+.hero {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    color: var(--dark-color);
+    padding: 50px 20px;
+    background-color: var(--white-color);
+}
+
+.hero-content {
+    flex: 1; /* Take up remaining space on the left */
+    padding-right: 20px; /* Space between text and slideshow */
+}
+
+.slogan-animation {
+    position: relative;
+    animation: sloganAnimation 10s linear infinite; /* Animation for background */
+}
+
+@keyframes sloganAnimation {
+    0% { background-color: rgba(255, 255, 255, 0.5); }
+    50% { background-color: rgba(200, 200, 200, 0.5); }
+    100% { background-color: rgba(255, 255, 255, 0.5); }
+}
+
+.slideshow-container {
+    flex: 1; /* Take up remaining space on the right */
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.btn-hero {
+    background-color: var(--highlight-color);
+    border: none;
+    padding: 15px 30px;
+    color: var(--white-color);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-hero:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Featured Products */
+.featured-products {
+    text-align: center;
+    background-color: var(--white-color); /* White background */
+    padding: 40px 20px;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: 2fr repeat(4, 1fr); /* One large on the left, four small on the right */
+    gap: 20px;
+}
+
+.product-item {
+    border: 1px solid var(--dark-color);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: left;
+}
+
+.large-product {
+    grid-row: span 2; /* Span two rows for large product */
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.btn-product {
+    background-color: var(--highlight-color);
+    border: none;
+    padding: 10px 20px;
+    color: var(--white-color);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+}
+
+.btn-product:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: var(--white-color);
+    color: var(--dark-color);
+    text-align: left;
+    padding: 40px 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+}
+
+.footer-links li a {
+    color: var(--dark-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links li a:hover {
+    color: var(--highlight-color);
+}
+
+.footer-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-icons a {
+    color: var(--dark-color);
+    font-size: 24px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer-icons a:hover {
+    color: var(--highlight-color);
+    transform: scale(1.2);
+}
+
+/* Slide Navigation */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/*Nabin Code*/
