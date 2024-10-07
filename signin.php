@@ -1,5 +1,5 @@
 <?php
-$signin_email = $signin_password = "";
+$signin_email = $signin_password = $got_password = $type = "";
 $signin_emailErr = $signin_passwordErr = "";
 
 $signup_full_name = $signup_email = $signup_password = $confirm_password = "";
@@ -46,11 +46,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 $stmt = $pdo->prepare('SELECT password FROM users WHERE email = ?');
                 $stmt->execute([$signin_email]);
-                $pass = $stmt->fetch();
+                $got_password = $stmt->fetch();
 
-                if ($pass && password_verify($signin_password, $pass['password'])) {
-                    header('Location: homepage.php');
-                    exit;
+                if ($got_password && password_verify($signin_password, $got_password['password'])) {
+                    $stmt = $pdo->prepare('SELECT type_id FROM users WHERE email = ?');
+                    $stmt->execute([$signin_email]);
+                    $type = $stmt->fetch();
+                    if ($type['type_id'] == 1) {
+                        header('Location: inventory_mgmt.php');
+                    }
+                    else {
+                        header('Location: homepage.php');
+                        exit;
+                    }
+                   
                 }
                 else {
                     $signin_passwordErr = "Invalid email or password";
