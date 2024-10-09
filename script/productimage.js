@@ -8,7 +8,7 @@ imageList.forEach(image => {
         
         // Remove active class from all images
         imageList.forEach(img => img.classList.remove('active'));
-
+        
         // Add active class to the clicked image
         this.classList.add('active');
     });
