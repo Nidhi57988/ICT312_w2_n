@@ -32,66 +32,47 @@
         <div class="left-section">
             <div class="product-image">
                 <div class="product-image-main">
-        <?php
-            if ($result->num_rows > 0) {
-                // Output the product details
-                $row = $result->fetch_assoc();
-                
-                // Get all images from the comma-separated string
-                $images = explode(',', $row['image_main']);
-                $images = explode(',', $row['image_1']);
-                $images = explode(',', $row['image_2']);
-                $images = explode(',', $row['image_3']);
-                $images = explode(',', $row['image_4']);
-                
-                // echo "<div class='product-card'>";
-                
-                // Display all images in a loop
-                
-                // foreach ($images as $image) {
-                //  echo "<img src='images/products/" . $image . "' alt='" . $row['name'] . "' id='product-main-image'>";
-                // }
+                <?php
+                    // Fetch product details by ID using a prepared statement
+                    $stmt = $conn->prepare("SELECT * FROM products WHERE id = ?");
+                    $stmt->bind_param("i", $product_id);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
 
-}
-        ?>
+                    // Fetch the product row if it exists
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
 
-<img src="<?php echo $row['image_main']; ?>" alt="" class="product-image-main" data-image="<?php echo $row['image_main']; ?>">
+                        // Get all images
+                        $images = [
+                            $row['image_1'],
+                            $row['image_2'],
+                            $row['image_3'],
+                            $row['image_4']
+                        ];
+                    ?>
+                        <img src="<?php echo $row['image_main']; ?>" alt="" id="product-main-image" class="product-image-main">
 
+                        <div class="product-image-slider">
+                            <?php foreach ($images as $image): ?>
+                                <img src="<?php echo $image; ?>" alt="" class="image-list" data-image="<?php echo $image; ?>">
+                            <?php endforeach; ?>
+                        </div>
 
-    <?php
-    // Fetch product details by ID using a prepared statement
-            $stmt = $conn->prepare("SELECT * FROM products WHERE id = ?");
-            $stmt->bind_param("i", $product_id);
-            $stmt->execute();
-            $result = $stmt->get_result();
+                    <?php
+                    } else {
+                        die("Product not found.");
+                    }
 
-            // Fetch the product row if it exists
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-    } else {
-        die("Product not found.");
-    }
+                    // Close the statement and connection
+                    $stmt->close();
+                    $conn->close();
+                ?>
 
-    $stmt->close();
-    $conn->close();
-
-    ?>
-
-                </div>
-            
-
-
-                    <div class="product-image-slider">
-                    <img src="<?php echo $row['image_1']; ?>" alt="" class="image-list" data-image="<?php echo $row['image_1']; ?>">
-                    <img src="<?php echo $row['image_2']; ?>" alt="" class="image-list" data-image="<?php echo $row['image_2']; ?>">
-                    <img src="<?php echo $row['image_3']; ?>" alt="" class="image-list" data-image="<?php echo $row['image_3']; ?>">
-                    <img src="<?php echo $row['image_4']; ?>" alt="" class="image-list" data-image="<?php echo $row['image_4']; ?>">
-                </div>
-
+            </div>
             </div>
 
         </div>
-
 
         <div class="right-section">
             <span class="badge">NEW</span>
@@ -107,18 +88,29 @@
             <!-- <p class="product-code"><?php echo $product['code']; ?></p> -->
             <p class="product-desc"><?php echo $row['description']; ?></p>
 
-            <h3>Choose Colour</h3>
+
+
+            <!-- <h4>Choose Colour:</h4> -->
             <div class="color-options">
-                <!-- <span>Colour:</span> <span class="color-selected"><?php echo $product['color']; ?></span> -->
+                 <?php
+                 echo "<p>Available Colors: ";
+                    $colors = array_filter([$row['color_1'], $row['color_2'], $row['color_3'], $row['color_4']]);
+                    echo implode(", ", $colors);
+                    echo "</p>"; ?>
+                    
             </div>
+
+
+
             <div class="product-quantity">
+                <h4>Quantity:</h4>
                 <input type="number" value="1" min="1" class="quantity-input">
             </div>
 
             <button type='button' class='product-page-button'>Add to Cart</button>
 
             <div class="secure-checkout">
-                    <p>Guaranteed Safe Checkout with</p>
+                    <p style="font-size: 0.9rem;">Guaranteed Safe Checkout with...</p>
                    <img src="https://www.ozquilts.com.au/images/companies/1/untitled%20folder/paypal-logo.png?1652491832766" alt="Payment options">
                 </div>
         </div>
@@ -128,5 +120,6 @@
 
 
     </div>
+    <script src="script/productimage.js"></script>
 </body>
 </html>

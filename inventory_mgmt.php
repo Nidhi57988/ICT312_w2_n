@@ -5,7 +5,7 @@ session_start();
 $host = 'localhost';
 $db = 'ICT312_website';
 $user = 'root';
-$pass = 'root';
+$pass = '';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
