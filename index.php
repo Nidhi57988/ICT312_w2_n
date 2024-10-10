@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Listing</title>
-    <link rel="stylesheet" href="styless.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 <header>
         <div class="header-container">
-            <img src="images/logo.jpeg" alt="HI-TECH Logo" class="logo">
+            <img src="images/logo.jpg" alt="HI-TECH Logo" class="logo">
             <nav class="nv00-gnb">
                 <ul class="nav-links">
                     <li class="dropdown">
@@ -27,6 +28,13 @@
                         </div>
                     </li>
                     <li class="dropdown">
+                        <a href="services.php" class="nv00-gnb__l0-menu-link">Services</a>
+                        <div class="dropdown-content">
+                            <p>Email Support</p>
+                            <p>FAQ</p>
+                        </div>
+                    </li>
+                    <li class="dropdown">
                         <a href="contact.php" class="nv00-gnb__l0-menu-link">Contact Us</a>
                         <div class="dropdown-content">
                             <p>Email Support</p>
@@ -36,9 +44,12 @@
                 </ul>
             </nav>
             <div class="header-icons">
-                <a href="#" aria-label="Sign In" title="Sign In"><i class="fas fa-user-circle"></i></a>
-                <a href="#" aria-label="Shopping Cart" title="Shopping Cart"><i class="fas fa-shopping-basket"></i></a>
-                <a href="#" aria-label="Search" title="Search"><i class="fas fa-search"></i></a>
+                <a href="signin.php" aria-label="Sign In" title="Sign In"><i class="fas fa-user-circle"></i></a>
+                <a href="checkout.php" aria-label="Shopping Cart" title="Shopping Cart"><i class="fas fa-shopping-basket"></i></a>
+                <a href="#" aria-label="Search" title="Search" id="search-icon"><i class="fas fa-search"></i></a>
+                <div class="search-bar" id="search-bar">
+                    <input type="text" placeholder="Search...">
+                </div>
             </div>
         </div>
     </header>
@@ -46,7 +57,7 @@
         <h1 class="heading">PRODUCT LIST</h1>
 
         <!-- Search Bar -->
-        <div class="search-bar">
+        <div class="listing-search-bar">
             <input type="text" id="searchInput" placeholder="Search Products">
         </div>
 
@@ -126,11 +137,11 @@
                     $products[] = $row;
                 }
 
-                // Shuffle the products array to display them randomly
-                shuffle($products);
+                // // Shuffle the products array to display them randomly
+                // shuffle($products);
 
-                // Limit the number of displayed products to 8 (or as required)
-                $products = array_slice($products, 0, 8);
+                // // Limit the number of displayed products to 8 (or as required)
+                // $products = array_slice($products, 0, 8);
 
                 // Loop through and display up to 8 products
                 foreach ($products as $row) {
@@ -141,9 +152,9 @@
 
                     // Display product card with "Buy Now" and "View Details" buttons
                     echo "<div class='product-card'>";
-                    echo "<img src='" . $image_main . "' alt='" . $row['name'] . "' class='product-image'>";
+                    echo "<img src='" . $image_main . "' alt='" . $row['name'] . "' class='productlisting-image'>";
                     echo "<div class='Name'>" . $row['name'] . "</div>";
-                    echo "<div class='product-price'>$" . $row['price'] . "</div>";
+                    echo "<div class='productlisting-price'>$" . $row['price'] . "</div>";
                     // echo "<a href='#' class='buy-now'>Buy Now</a>";
                     echo "<a href='product_db.php?id=" . $row['id'] . "' class='view-details'>View Details</a>";
                     echo "</div>";
@@ -159,7 +170,25 @@
     </div>
         
         
-    
+    <footer>
+    <div class="footer-content">
+        <nav aria-label="Footer Navigation" class="footer-nav">
+            <ul class="footer-links">
+                <li><a href="#">Sustainability</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Service</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2024 HI-TECH. All Rights Reserved.</p>
+        <div class="footer-icons">
+            <a href="#" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
     <script src="script/productlisting.js"></script>
 </body>
 </html>

@@ -137,24 +137,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Shuffling products if no category is selected
-    const urlParams = new URLSearchParams(window.location.search);
-    const categoryParam = urlParams.get('category');
-    if (!categoryParam) {  // Shuffle only if there is no category filter
-        shuffleProducts();
-    }
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const categoryParam = urlParams.get('category');
+    // if (!categoryParam) {  // Shuffle only if there is no category filter
+    //     shuffleProducts();
+    // }
 
-    // Function to shuffle products
-    function shuffleProducts() {
-        const productList = document.getElementById('productList');
-        const products = Array.from(productList.querySelectorAll('.product-card'));
+    // // Function to shuffle products
+    // function shuffleProducts() {
+    //     const productList = document.getElementById('productList');
+    //     const products = Array.from(productList.querySelectorAll('.product-card'));
 
-        // Shuffle the products array
-        for (let i = products.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [products[i], products[j]] = [products[j], products[i]];
-        }
+    //     // Shuffle the products array
+    //     for (let i = products.length - 1; i > 0; i--) {
+    //         const j = Math.floor(Math.random() * (i + 1));
+    //         [products[i], products[j]] = [products[j], products[i]];
+    //     }
 
-        // Re-append the shuffled products to the product list
-        products.forEach(product => productList.appendChild(product));
-    }
+    //     // Re-append the shuffled products to the product list
+    //     products.forEach(product => productList.appendChild(product));
+    // }
 });

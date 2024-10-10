@@ -1,7 +1,3 @@
-<?php
-	
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,11 +7,58 @@
     <title>Support & Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
 </head>
 <body>
+	<header>
+        <div class="header-container">
+            <img src="images/logo.jpg" alt="HI-TECH Logo" class="logo">
+            <nav class="nv00-gnb">
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="homepage.php" class="nv00-gnb__l0-menu-link">Home</a>
+                        <div class="dropdown-content">
+                            <p>Latest News</p>
+                            <p>Our Mission</p>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="index.php" class="nv00-gnb__l0-menu-link">Products</a>
+                        <div class="dropdown-content">
+                            <p>Gadgets</p>
+                            <p>Accessories</p>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="services.php" class="nv00-gnb__l0-menu-link">Services</a>
+                        <div class="dropdown-content">
+                            <p>Email Support</p>
+                            <p>FAQ</p>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="contact.php" class="nv00-gnb__l0-menu-link">Contact Us</a>
+                        <div class="dropdown-content">
+                            <p>Email Support</p>
+                            <p>FAQ</p>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="signin.php" aria-label="Sign In" title="Sign In"><i class="fas fa-user-circle"></i></a>
+                <a href="checkout.php" aria-label="Shopping Cart" title="Shopping Cart"><i class="fas fa-shopping-basket"></i></a>
+                <a href="#" aria-label="Search" title="Search" id="search-icon"><i class="fas fa-search"></i></a>
+                <div class="search-bar" id="search-bar">
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
+        </div>
+    </header>
 <div class="service-page">
+	<h2 class="heading">SUPPORT & SERVICES</h2>
 		<div class="service-delivery">
 			<h2 class="serivce-heading">Delivery Options </h2>
 			<p class="service-page-p">When you buy online, we provide a range of convenient delivery options so you can get your purchases when you want. At checkout, we’ll show you the available options and delivery costs based on the items in your cart and where you need them delivered.</p>
@@ -41,5 +84,24 @@
 
 		</div>
 	</div>
+	<footer>
+    <div class="footer-content">
+        <nav aria-label="Footer Navigation" class="footer-nav">
+            <ul class="footer-links">
+                <li><a href="#">Sustainability</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Service</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2024 HI-TECH. All Rights Reserved.</p>
+        <div class="footer-icons">
+            <a href="#" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

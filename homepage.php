@@ -10,7 +10,7 @@
 <body>
     <header>
         <div class="header-container">
-            <img src="images/logo.jpeg" alt="HI-TECH Logo" class="logo">
+            <img src="images/logo.jpg" alt="HI-TECH Logo" class="logo">
             <nav class="nv00-gnb">
                 <ul class="nav-links">
                     <li class="dropdown">
@@ -28,6 +28,13 @@
                         </div>
                     </li>
                     <li class="dropdown">
+                        <a href="services.php" class="nv00-gnb__l0-menu-link">Services</a>
+                        <div class="dropdown-content">
+                            <p>Email Support</p>
+                            <p>FAQ</p>
+                        </div>
+                    </li>
+                    <li class="dropdown">
                         <a href="contact.php" class="nv00-gnb__l0-menu-link">Contact Us</a>
                         <div class="dropdown-content">
                             <p>Email Support</p>
@@ -38,85 +45,84 @@
             </nav>
             <div class="header-icons">
                 <a href="signin.php" aria-label="Sign In" title="Sign In"><i class="fas fa-user-circle"></i></a>
-                <a href="#" aria-label="Shopping Cart" title="Shopping Cart"><i class="fas fa-shopping-basket"></i></a>
-                <a href="#" aria-label="Search" title="Search"><i class="fas fa-search"></i></a>
+                <a href="checkout.php" aria-label="Shopping Cart" title="Shopping Cart"><i class="fas fa-shopping-basket"></i></a>
+                <a href="#" aria-label="Search" title="Search" id="search-icon"><i class="fas fa-search"></i></a>
+                <div class="search-bar" id="search-bar">
+                    <input type="text" placeholder="Search...">
+                </div>
             </div>
         </div>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Empowering Your Tech Experience</h1>
-            <p>Your gateway to the latest innovations in technology.</p>
-            <button class="btn-hero" type="button">Explore Now</button>
+            <div class="slogan-animation">
+                <h1>Empowering Your Tech Experience</h1>
+                <p>Your gateway to the latest innovations in technology.</p>
+            </div>
         </div>
         <div class="slideshow-container">
             <div class="mySlides fade">
+                <img src="images/s24.jpg" alt="Samsung S24">
+            </div>
+            <div class="mySlides fade">
                 <img src="images/iphone16.jpg" alt="iPhone 16">
-                <div class="text">Slide 1 Caption</div>
-            </div>
-            <div class="mySlides fade">
-                <img src="images/lg_tv.jpeg" alt="LG TV">
-                <div class="text">Slide 2 Caption</div>
-            </div>
-            <div class="mySlides fade">
-                <img src="images/samsung_s24.jpg" alt="Samsung S24">
-                <div class="text">Slide 3 Caption</div>
             </div>
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
     </section>
 
-    <section class="featured-products">
-        <h2>Featured Products</h2>
-        <div class="product-list">
-            <div class="product-item large-product">
-                <img src="images/iphone16.jpg" alt="iPhone 16">
-                <p>"The future is here."</p>
-                <button onclick="location.href='product-page-iphone16.html'" class="btn-product">View Product</button>
+    <section class="latest-news">
+        <h2>Latest News</h2>
+        <article>
+            <h3>Innovation in Tech: The Future is Now</h3>
+            <p>Stay updated with the latest advancements in technology, including AI, robotics, and smart devices that are revolutionizing our lives.</p>
+        </article>
+        <article>
+            <h3>Sustainable Tech: A Step Towards a Greener Future</h3>
+            <p>Explore how technology is making strides toward sustainability, focusing on eco-friendly practices and renewable energy solutions.</p>
+        </article>
+    </section>
+
+    <section class="our-mission">
+        <h2>Our Mission</h2>
+        <div class="mission-content">
+            <div class="mission-item">
+                <img src="images/recycle.jpg" alt="Recycling Batteries">
+                <h3>Battery Recycling</h3>
+                <p>We are committed to promoting the recycling of batteries to reduce waste and protect the environment. Our initiatives aim to create awareness and provide facilities for proper battery disposal.</p>
+                <button class="mission-button">Learn More</button>
             </div>
-            <div class="product-item">
-                <img src="images/lg_tv.jpeg" alt="LG TV">
-                <p>"Experience every detail."</p>
-                <button onclick="location.href='product-page-lg.html'" class="btn-product">View Product</button>
-            </div>
-            <div class="product-item">
-                <img src="images/samsung_s24.jpg" alt="Samsung S24">
-                <p>"Unleash your potential."</p>
-                <button onclick="location.href='product-page-samsung.html'" class="btn-product">View Product</button>
-            </div>
-            <div class="product-item">
-                <img src="images/some-other-product.jpg" alt="Some Other Product">
-                <p>"Innovation at its best."</p>
-                <button onclick="location.href='product-page-other.html'" class="btn-product">View Product</button>
-            </div>
-            <div class="product-item">
-                <img src="images/yet-another-product.jpg" alt="Yet Another Product">
-                <p>"Revolutionize your lifestyle."</p>
-                <button onclick="location.href='product-page-yet-another.html'" class="btn-product">View Product</button>
+            <div class="mission-item">
+                <img src="images/mental.jpg" alt="Mental Health Donation">
+                <h3>Mental Health Donation</h3>
+                <p>Supporting mental health is vital to our mission. We donate a portion of our profits to mental health organizations to ensure that everyone has access to the support they need.</p>
+                <button class="mission-button">Donate Now</button>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <nav aria-label="Footer Navigation" class="footer-nav">
-                <ul class="footer-links">
-                    <li><a href="#">Sustainability</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Service</a></li>
-                </ul>
-            </nav>
-            <p>&copy; 2024 HI-TECH. All Rights Reserved.</p>
-            <div class="footer-icons">
-                <a href="#" aria-label="Sign In" title="Sign In"><i class="fas fa-user-circle"></i></a>
-                <a href="#" aria-label="Shopping Cart" title="Shopping Cart"><i class="fas fa-shopping-basket"></i></a>
-                <a href="#" aria-label="Contact Us" title="Contact Us"><i class="fas fa-envelope-open-text"></i></a>
-            </div>
+    <div class="footer-content">
+        <nav aria-label="Footer Navigation" class="footer-nav">
+            <ul class="footer-links">
+                <li><a href="#">Sustainability</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Service</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2024 HI-TECH. All Rights Reserved.</p>
+        <div class="footer-icons">
+            <a href="#" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         </div>
-    </footer>
+    </div>
+</footer>
+
 
     <script src="script/script.js"></script>
 </body>

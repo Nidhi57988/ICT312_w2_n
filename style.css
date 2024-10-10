@@ -27,7 +27,7 @@
     font-family: "Helvetica Neue", Arial, sans-serif;;
     background-color: #fff;
     color: #333;
-    margin: 20px;
+/*    margin: 20px;*/
 }
 
 body#signin {
@@ -74,6 +74,7 @@ body#services {
     gap: 20px; /* Gap between the two sections */
     background-color: #fff;
     padding: 20px;
+    margin-bottom: 30px;
 }
 
 .left-section{
@@ -197,6 +198,22 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-weight: bold;
 }
 
+
+.color-swatch {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+
+.color-swatch:hover {
+    border: 2px solid #000;
+}
+
+
 .product-quantity {
     margin-bottom: 20px;
     margin-top: 20px;
@@ -207,6 +224,10 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 5px;
     font-size: 1rem;
     text-align: center;
+}
+
+.product-page-h4{
+    margin-top: 20px;
 }
 
 .product-page-button {
@@ -245,7 +266,6 @@ display: inline-block; /* Allows the button to keep its content-based size */
     max-width: 30%; /* Limit image width */
     height: auto; /* Maintain aspect ratio */
 }
-
 
 /*Services Page */
 
@@ -793,30 +813,36 @@ footer{
 
  /*Saksham Code*/
  /* Header */
-.header-container {
+ .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px; /* Reduced padding for a smaller header */
-    background-color: var(--dark-color); /* Black background */
+    padding: 15px; 
+    background-color: var(--dark-color);
 }
 
 .logo {
-    width: 200px; /* Increased logo size */
+    width: 150px; 
 }
 
 .nav-links {
     list-style-type: none;
     display: flex;
-    gap: 20px;
+    gap: 30px; 
     position: relative;
 }
 
 .nv00-gnb__l0-menu-link {
-    color: var(--white-color); /* White text */
+    color: var(--white-color);
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px; 
+    font-weight: bold; 
     position: relative;
+    transition: transform 0.3s; 
+}
+
+.nv00-gnb__l0-menu-link:hover {
+    transform: scale(1.05); /* Slightly enlarges the text */
 }
 
 /* Dropdown Styles */
@@ -825,7 +851,7 @@ footer{
 }
 
 .dropdown-content {
-    display: none;
+    display: none; 
     position: absolute;
     background-color: var(--white-color);
     border-radius: 10px;
@@ -838,7 +864,7 @@ footer{
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+    display: block; 
 }
 
 .dropdown-content p {
@@ -846,51 +872,75 @@ footer{
     padding: 8px 16px;
     color: var(--dark-color);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s;
 }
 
 .dropdown-content p:hover {
-    background-color: var(--off-white-color);
+    transform: scale(1.05); /* Adds a slight scaling effect */
 }
 
 /* Header Icons */
 .header-icons {
     display: flex;
-    gap: 20px;
+    gap: 30px; 
 }
 
 .header-icons a {
     color: var(--white-color);
-    font-size: 24px; /* Increased icon size */
+    font-size: 24px; 
+}
+
+/* Search Bar */
+.search-bar {
+    display: none; 
+    margin-left: 10px;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid var(--dark-color);
+    border-radius: 5px;
+}
+
+/* Show search bar when visible */
+.search-bar.active {
+    display: block;
 }
 
 /* Hero Section */
 .hero {
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
+    display: flex; 
+    align-items: center; 
     color: var(--dark-color);
     padding: 50px 20px;
     background-color: var(--white-color);
 }
 
 .hero-content {
-    flex: 1; /* Take up remaining space on the left */
-    padding-right: 20px; /* Space between text and slideshow */
+    flex: 1; 
+    padding-right: 20px; 
 }
 
 .slogan-animation {
     position: relative;
-    animation: sloganAnimation 10s linear infinite; /* Animation for background */
+    font-size: 36px; 
+    line-height: 1.2; 
+    animation: glitter 1.5s linear infinite; 
+    background: linear-gradient(90deg, rgba(255, 0, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(0, 255, 0, 0.5), rgba(0, 0, 255, 0.5), rgba(75, 0, 130, 0.5), rgba(238, 130, 238, 0.5));
+    background-size: 300% 100%; 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center; 
 }
 
-@keyframes sloganAnimation {
-    0% { background-color: rgba(255, 255, 255, 0.5); }
-    50% { background-color: rgba(200, 200, 200, 0.5); }
-    100% { background-color: rgba(255, 255, 255, 0.5); }
+@keyframes glitter {
+    0% { background-position: 0%; }
+    100% { background-position: 200%; }
 }
 
+/* Slideshow */
 .slideshow-container {
-    flex: 1; /* Take up remaining space on the right */
+    flex: 1; 
     position: relative;
     max-width: 100%;
     margin: auto;
@@ -900,78 +950,85 @@ footer{
     display: none;
 }
 
-.text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    left: 16px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-}
-
-.btn-hero {
-    background-color: var(--highlight-color);
-    border: none;
-    padding: 15px 30px;
-    color: var(--white-color);
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.btn-hero:hover {
-    background-color: var(--primary-color);
-    transform: scale(1.05);
-}
-
-/* Featured Products */
-.featured-products {
-    text-align: center;
-    background-color: var(--white-color); /* White background */
+/* Latest News Section */
+.latest-news {
     padding: 40px 20px;
+    background-color: var(--off-white-color);
+    text-align: center;
 }
 
-.product-list {
-    display: grid;
-    grid-template-columns: 2fr repeat(4, 1fr); /* One large on the left, four small on the right */
-    gap: 20px;
+.latest-news h2 {
+    font-size: 28px; 
+    margin-bottom: 20px;
 }
 
-.product-item {
-    border: 1px solid var(--dark-color);
+.latest-news article {
+    margin: 20px 0;
+}
+
+.latest-news article h3 {
+    font-size: 22px; 
+    margin-bottom: 10px;
+}
+
+/* Our Mission Section */
+.our-mission {
+    padding: 40px 20px;
+    background-color: var(--white-color);
+    text-align: center;
+}
+
+.our-mission h2 {
+    font-size: 28px; 
+    margin-bottom: 30px;
+}
+
+.mission-content {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.mission-item {
+    flex: 1;
+    background-color: var(--white-color);
     border-radius: 10px;
-    padding: 10px;
-    text-align: left;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
-.large-product {
-    grid-row: span 2; /* Span two rows for large product */
+.mission-item:hover {
+    transform: scale(1.03);
 }
 
-.product-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+.mission-item img {
+    max-width: 100%;
+    border-radius: 10px;
 }
 
-.btn-product {
-    background-color: var(--highlight-color);
+.mission-item h3 {
+    font-size: 22px; 
+    margin: 15px 0;
+}
+
+.mission-item p {
+    margin-bottom: 15px;
+}
+
+.mission-button {
+    background-color: var(--dark-color);
+    color: var(--white-color);
     border: none;
     padding: 10px 20px;
-    color: var(--white-color);
-    cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-top: 10px;
-    display: block;
-    width: 100%;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
-.btn-product:hover {
-    background-color: var(--primary-color);
-    transform: scale(1.05);
+.mission-button:hover {
+    transform: scale(1.05); /* Scales without changing color */
 }
 
 /* Footer */
@@ -997,51 +1054,24 @@ footer {
 .footer-links li a {
     color: var(--dark-color);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: transform 0.3s;
 }
 
 .footer-links li a:hover {
-    color: var(--highlight-color);
-}
-
-.footer-icons {
-    display: flex;
-    gap: 20px;
+    transform: scale(1.05); /* Adds scaling effect */
 }
 
 .footer-icons a {
     color: var(--dark-color);
-    font-size: 24px;
-    transition: color 0.3s, transform 0.3s;
+    font-size: 20px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 10px;
 }
 
 .footer-icons a:hover {
-    color: var(--highlight-color);
-    transform: scale(1.2);
-}
-
-/* Slide Navigation */
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
-
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+    color: var(--highlight-color); /* Change this if you want a different effect */
 }
 
 /*Nabin Code*/

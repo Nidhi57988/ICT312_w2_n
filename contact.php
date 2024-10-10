@@ -8,12 +8,58 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
   </head>
 
   <body id="contact">
+    <header>
+        <div class="header-container">
+            <img src="images/logo.jpg" alt="HI-TECH Logo" class="logo">
+            <nav class="nv00-gnb">
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="homepage.php" class="nv00-gnb__l0-menu-link">Home</a>
+                        <div class="dropdown-content">
+                            <p>Latest News</p>
+                            <p>Our Mission</p>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="index.php" class="nv00-gnb__l0-menu-link">Products</a>
+                        <div class="dropdown-content">
+                            <p>Gadgets</p>
+                            <p>Accessories</p>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="services.php" class="nv00-gnb__l0-menu-link">Services</a>
+                        <div class="dropdown-content">
+                            <p>Email Support</p>
+                            <p>FAQ</p>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="contact.php" class="nv00-gnb__l0-menu-link">Contact Us</a>
+                        <div class="dropdown-content">
+                            <p>Email Support</p>
+                            <p>FAQ</p>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="signin.php" aria-label="Sign In" title="Sign In"><i class="fas fa-user-circle"></i></a>
+                <a href="checkout.php" aria-label="Shopping Cart" title="Shopping Cart"><i class="fas fa-shopping-basket"></i></a>
+                <a href="#" aria-label="Search" title="Search" id="search-icon"><i class="fas fa-search"></i></a>
+                <div class="search-bar" id="search-bar">
+                    <input type="text" placeholder="Search...">
+                </div>
+            </div>
+        </div>
+    </header>
       <section class="contact" id="contact">
         <h4 class="heading">Contact Options</h4>
         <div class="card-container">
@@ -139,7 +185,25 @@
         </div>
       </section>
   </body>
-
+<footer>
+    <div class="footer-content">
+        <nav aria-label="Footer Navigation" class="footer-nav">
+            <ul class="footer-links">
+                <li><a href="#">Sustainability</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Service</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2024 HI-TECH. All Rights Reserved.</p>
+        <div class="footer-icons">
+            <a href="#" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
 <script src="script/map.js"></script>
 </html>
 
